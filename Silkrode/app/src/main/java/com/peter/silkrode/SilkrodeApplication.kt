@@ -7,7 +7,7 @@ import kotlin.properties.Delegates
 
 class SilkrodeApplication : Application() {
 
-//    // Depends on the flavor,
+    // Depends on the flavor,
     val silkrodeRepository: SilkrodeRepository
         get() = ServiceLocator.provideTasksRepository()
 

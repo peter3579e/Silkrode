@@ -15,20 +15,25 @@ import com.peter.silkrode.ext.getVmFactory
 import com.peter.silkrode.ui.home.HomeViewModel
 import com.peter.silkrode.util.Logger
 
-class UserDetailFragment : Fragment(){
+class UserDetailFragment : Fragment() {
 
-    private lateinit var binding:FragmentUserdetailBinding
-    private val viewModel by viewModels<UserDetailViewModel> { getVmFactory(UserDetailFragmentArgs.fromBundle(requireArguments()).name) }
+    private lateinit var binding: FragmentUserdetailBinding
+    private val viewModel by viewModels<UserDetailViewModel> {
+        getVmFactory(
+            UserDetailFragmentArgs.fromBundle(
+                requireArguments()
+            ).name
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentUserdetailBinding.inflate(inflater,container,false)
-//        viewModel = ViewModelProvider(this).get(UserDetailViewModel::class.java)
+        binding = FragmentUserdetailBinding.inflate(inflater, container, false)
+
         binding.lifecycleOwner = this
-//        val userName = UserDetailFragmentArgs.fromBundle(requireArguments()).name
 
         binding.cross.setOnClickListener {
             findNavController().navigate(MobileNavigationDirections.navigateToHomeFragment())

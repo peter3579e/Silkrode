@@ -22,7 +22,7 @@ import com.peter.silkrode.util.Logger
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel:MainViewModel
+    private lateinit var viewModel: MainViewModel
 
     private val onNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
@@ -82,8 +82,6 @@ class MainActivity : AppCompatActivity() {
             Logger.i("[${viewModel.currentFragmentType.value}]")
             Logger.i("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         })
-
-
 
 
     }

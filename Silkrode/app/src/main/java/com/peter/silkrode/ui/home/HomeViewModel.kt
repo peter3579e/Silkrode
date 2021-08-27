@@ -13,16 +13,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class HomeViewModel (private val silkrodeRepository: SilkrodeRepository) : ViewModel() {
+class HomeViewModel(private val silkrodeRepository: SilkrodeRepository) : ViewModel() {
 
-
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
-
-    val _userList =MutableLiveData<List<User>>()
+    val _userList = MutableLiveData<List<User>>()
 
     // The external LiveData interface to the property is immutable, so only this class can modify
     val userList: LiveData<List<User>>
@@ -38,25 +31,15 @@ class HomeViewModel (private val silkrodeRepository: SilkrodeRepository) : ViewM
         getFollowerList()
     }
 
-//    fun getFollowerList() {
-//        coroutineScope.launch {
-//
-//            try {
-//                // this will run on a thread managed by Retrofit
-//                val result = SilkrodeApi.retrofitService.getFollowerList()
-//                _userList.value= result
-//                Log.d("HomeViewModel","the value of result = $result")
-//            } catch (e: Exception) {
-//                Log.i("Demo", "exception=${e.message}")
-//            }
-//        }
-//    }
+    /**
+     * track [SilkrodeRepository.getFollowerList]: -> [DefaultSilkrodeRepository] : [SilkrodeRepository] -> [SilkeodeRemoteDataSource] : [SilkrodeDataSource]
+     */
 
-    fun getFollowerList (){
+    fun getFollowerList() {
         coroutineScope.launch {
             val result = silkrodeRepository.getFollowerList()
 
-            _userList.value = when(result){
+            _userList.value = when (result) {
                 is Result.Success -> {
                     result.data
                 }

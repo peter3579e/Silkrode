@@ -5,6 +5,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.peter.silkrode.data.source.SilkrodeRepository
 import com.peter.silkrode.ui.userdetail.UserDetailViewModel
 
+/**
+ *
+ * Factory for UserDetail ViewModels.
+ */
+
 class UserDetailViewModelFactory(
         private val silkrodeRepository: SilkrodeRepository,
         private val name: String

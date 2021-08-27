@@ -17,7 +17,8 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
             .load(imgUri)
             .apply(
                 RequestOptions()
-                .error(R.drawable.image_strikethrough))
+                    .error(R.drawable.image_strikethrough)
+            )
             .into(imgView)
     }
 }

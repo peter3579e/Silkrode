@@ -13,7 +13,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class UserDetailViewModel(private val silkrodeRepository: SilkrodeRepository, name: String):ViewModel(){
+class UserDetailViewModel(private val silkrodeRepository: SilkrodeRepository, name: String) :
+    ViewModel() {
 
 
     val _userDetail = MutableLiveData<User>()
@@ -32,25 +33,17 @@ class UserDetailViewModel(private val silkrodeRepository: SilkrodeRepository, na
         getInfo(name)
     }
 
-//    fun getInfo(name : String) {
-//        coroutineScope.launch {
-//
-//            try {
-//                // this will run on a thread managed by Retrofit
-//                val result = SilkrodeApi.retrofitService.getMyUserDetail(name)
-//                _userDetail.value= result
-//                Log.d("UserDetailViewModel","the value of result = $result")
-//            } catch (e: Exception) {
-//                Log.i("Demo", "exception=${e.message}")
-//            }
-//        }
-//    }
+    /**
+     * track [SilkrodeRepository.getMyUserDetail]: -> [DefaultSilkrodeRepository] : [SilkrodeRepository] -> [SilkeodeRemoteDataSource] : [SilkrodeDataSource]
+     * @param name: the input String
+     */
 
-    fun getInfo (name: String){
+
+    fun getInfo(name: String) {
         coroutineScope.launch {
             val result = silkrodeRepository.getMyUserDetail(name)
 
-            _userDetail.value = when(result){
+            _userDetail.value = when (result) {
                 is Result.Success -> {
                     result.data
                 }

@@ -20,11 +20,11 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(inflater,container,false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         val adapter = HomeAdapter()
         binding.userRecyclerView.adapter = adapter

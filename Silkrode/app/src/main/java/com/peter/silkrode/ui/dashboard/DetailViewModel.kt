@@ -31,6 +31,11 @@ class DetailViewModel (private val silkrodeRepository: SilkrodeRepository) : Vie
         getInfo("peter3579e")
     }
 
+    /**
+     * track [SilkrodeRepository.getMyUserDetail]: -> [DefaultSilkrodeRepository] : [SilkrodeRepository] -> [SilkeodeRemoteDataSource] : [SilkrodeDataSource]
+     * @param name: the input String
+     */
+
     fun getInfo (name: String){
         coroutineScope.launch {
             val result = silkrodeRepository.getMyUserDetail(name)

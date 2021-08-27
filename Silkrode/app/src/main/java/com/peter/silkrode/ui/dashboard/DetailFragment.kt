@@ -23,9 +23,8 @@ class DetailFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetailBinding.inflate(inflater,container,false)
-//        viewModel =
-//                ViewModelProvider(this).get(DetailViewModel::class.java)
-       binding.image = "https://firebasestorage.googleapis.com/v0/b/letsswtich.appspot.com/o/fakeimages%2Fpeterbg.jpg?alt=media&token=44a79532-cbb4-4ce6-910a-31ff1c09d257"
+
+        binding.image = "https://firebasestorage.googleapis.com/v0/b/letsswtich.appspot.com/o/fakeimages%2Fpeterbg.jpg?alt=media&token=44a79532-cbb4-4ce6-910a-31ff1c09d257"
 
         viewModel.userDetail.observe(viewLifecycleOwner, Observer {
             binding.user = it

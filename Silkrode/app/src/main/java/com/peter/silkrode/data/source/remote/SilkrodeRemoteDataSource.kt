@@ -11,7 +11,7 @@ import com.peter.silkrode.util.Logger
 
 /**
  *
- * Implementation of the Gooroo source that from network.
+ * Implementation of the Silkrode source that from network.
  */
 
 object SilkrodeRemoteDataSource : SilkrodeDataSource {

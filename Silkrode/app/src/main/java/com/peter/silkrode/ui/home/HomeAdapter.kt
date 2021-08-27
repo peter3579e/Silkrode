@@ -15,21 +15,14 @@ import com.peter.silkrode.MobileNavigationDirections
 import com.peter.silkrode.data.User
 import com.peter.silkrode.databinding.ItemUserlistBinding
 
-class HomeAdapter : ListAdapter<User, HomeAdapter.ViewHolder>(DiffCallback){
-    class ViewHolder(private var binding: ItemUserlistBinding): RecyclerView.ViewHolder(binding.root),
+class HomeAdapter : ListAdapter<User, HomeAdapter.ViewHolder>(DiffCallback) {
+    class ViewHolder(private var binding: ItemUserlistBinding) :
+        RecyclerView.ViewHolder(binding.root),
         LifecycleOwner {
-        fun bind(user: User){
+        fun bind(user: User) {
 
             binding.user = user
             binding.lifecycleOwner = this
-
-
-//            binding.root.setOnClickListener{
-//                    view: View ->
-//                view.findNavController().navigate(NavigationDirections.navigateToChatroomFragment(friendInfo.userEmail,friendInfo.userName,false))
-//                Log.d("ChatListAdapter","value of userinfo = ${friendInfo.userEmail}")
-//                Log.d("ChatListAdapter","value of userinfo = ${friendInfo.userName}")
-//            }
 
             binding.executePendingBindings()
 
@@ -56,14 +49,20 @@ class HomeAdapter : ListAdapter<User, HomeAdapter.ViewHolder>(DiffCallback){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ItemUserlistBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return ViewHolder(
+            ItemUserlistBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position) as User)
-        holder.itemView.setOnClickListener {
-            view:View ->
-            view.findNavController().navigate(MobileNavigationDirections.navigateToUserDetailFragment(getItem(position).login!!))
+        holder.itemView.setOnClickListener { view: View ->
+            view.findNavController()
+                .navigate(MobileNavigationDirections.navigateToUserDetailFragment(getItem(position).login!!))
         }
     }
 
@@ -89,6 +88,7 @@ class HomeAdapter : ListAdapter<User, HomeAdapter.ViewHolder>(DiffCallback){
         override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
             return oldItem === newItem
         }
+
         override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
             return oldItem == newItem
         }

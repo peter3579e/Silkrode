@@ -6,6 +6,13 @@ import com.peter.silkrode.data.source.SilkrodeRepository
 import com.peter.silkrode.ui.dashboard.DetailViewModel
 import com.peter.silkrode.ui.home.HomeViewModel
 
+
+/**
+ *
+ * Factory for all ViewModels.
+ */
+
+
 class ViewModelFactory(
         private val silkrodeRepository: SilkrodeRepository,
 ) : ViewModelProvider.Factory {
