@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="User"
+            type="com.peter.silkrode.data.User" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_chat_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_chat_avatar"
+                imageUrl="@{User.avatar_url}"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:clipChildren="false"
+                android:elevation="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="20dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/chatroom"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="60dp"
+                app:layout_constraintBottom_toBottomOf="@id/image_chat_avatar"
+                app:layout_constraintStart_toEndOf="@id/image_chat_avatar"
+                app:layout_constraintTop_toTopOf="@id/image_chat_avatar"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="60dp">
+
+
+                <TextView
+                    android:id="@+id/text_chat_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@{User.login}"
+                    tools:text="Peter Liu" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_latest_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@id/text_chat_name"
+                    app:layout_constraintTop_toBottomOf="@id/text_chat_name">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{User.type}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Start a new conversation" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

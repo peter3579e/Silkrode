@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="image"
+            type="String" />
+        
+        <variable
+            name="user"
+            type="com.peter.silkrode.data.User" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            imageUrl="@{image}"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/pic"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:background="@drawable/ic_baseline_location_on_24"
+            imageUrl="@{user.avatar_url}"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="50dp" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/pic"
+            app:layout_constraintTop_toBottomOf="@id/pic"
+            tools:text="Peter Liu"
+            android:textColor="@color/black"
+            android:text="@{user.name}"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textSize="40dp"/>
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            tools:text="peter3579e"
+            app:layout_constraintStart_toStartOf="@id/name"
+            android:textSize="20dp"
+            android:text="@{user.login}"/>
+        <ImageView
+            android:id="@+id/people"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintStart_toStartOf="@id/login"
+            app:layout_constraintTop_toBottomOf="@id/login"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_baseline_people_alt_24"/>
+        <TextView
+            android:id="@+id/followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/people"
+            app:layout_constraintBottom_toBottomOf="@id/people"
+            app:layout_constraintTop_toTopOf="@id/people"
+            android:layout_marginStart="10dp"
+            tools:text="2 followers 1 following"
+            android:text='@{String.valueOf(user.followers)+" followers "+String.valueOf(user.following)+" following "}'
+            android:layout_marginLeft="10dp" />
+        <ImageView
+            android:id="@+id/mail"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintStart_toStartOf="@id/people"
+            app:layout_constraintTop_toBottomOf="@id/people"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_baseline_email_24"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/mail"
+            tools:text="peter@gmail.com"
+            app:layout_constraintStart_toStartOf="@id/followers"
+            android:text="@{user.email}"/>
+
+
+
+
+
+
+        
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

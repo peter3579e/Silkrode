@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.peter.silkrode.ui.userdetail.UserDetailViewModel" />
+        <variable
+            name="user"
+            type="com.peter.silkrode.data.User" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/cross"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/ic_baseline_clear_24"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:backgroundTint="@color/black"
+            android:layout_marginLeft="30dp" />
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profile"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                imageUrl="@{user.avatar_url}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Peter Liu"
+                app:layout_constraintTop_toBottomOf="@id/profile_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="@{user.name}"
+                android:textSize="30dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="#cccccc"
+            app:layout_constraintTop_toBottomOf="@id/profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <ImageView
+            android:id="@+id/person"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@id/line"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/ic_baseline_person_24"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/black"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/person"
+            tools:text="peter3579e"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@id/person"
+            app:layout_constraintBottom_toBottomOf="@id/person"
+            android:text="@{user.login}"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp" />
+
+        <ImageView
+            android:id="@+id/location"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@id/person"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/ic_baseline_location_on_24"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/black"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/location"
+            tools:text="Taiwan"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@id/location"
+            app:layout_constraintBottom_toBottomOf="@id/location"
+            android:text="@{user.location}"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp" />
+
+        <ImageView
+            android:id="@+id/link"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@id/location"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/ic_baseline_link_24"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/black"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/link"
+            tools:text="www.peter.com"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@id/link"
+            app:layout_constraintBottom_toBottomOf="@id/link"
+            android:text="@{user.html_url}"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
